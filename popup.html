@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      margin: 0;
+      padding: 14px;
+      font: 13px/1.6 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+      color: #222;
+    }
+    h1 { font-size: 15px; margin: 0 0 10px; }
+    label { display: block; margin-top: 10px; font-weight: 600; }
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 4px;
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+    .switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 0;
+      font-weight: 600;
+    }
+    .switch input { width: auto; margin: 0; }
+    .row { display: flex; gap: 8px; margin-top: 14px; }
+    button {
+      flex: 1;
+      padding: 6px 0;
+      border: none;
+      border-radius: 6px;
+      background: #3a7afe;
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    button.secondary { background: #8a94a6; }
+    button:hover { opacity: 0.9; }
+    #msg { margin-top: 10px; font-size: 12px; min-height: 18px; word-break: break-all; }
+    #msg.ok { color: #1a7f37; }
+    #msg.err { color: #d33; }
+    .tip {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+      font-size: 11px;
+      color: #888;
+    }
+    .tip a { color: #3a7afe; }
+  </style>
+</head>
+<body>
+  <h1>📌 智慧树刷题助手</h1>
+
+  <label class="switch">
+    <input type="checkbox" id="enabled"> 启用浮窗助手
+  </label>
+
+  <label>接口地址（OpenAI 兼容 Base URL）
+    <input id="baseUrl" placeholder="https://open.bigmodel.cn/api/paas/v4">
+  </label>
+
+  <label>模型名
+    <input id="model" placeholder="glm-4-flash">
+  </label>
+
+  <label>API Key
+    <input id="apiKey" type="password" placeholder="粘贴你的 Key">
+  </label>
+
+  <div class="row">
+    <button id="save">保存</button>
+    <button id="test" class="secondary">测试连接</button>
+  </div>
+  <div id="msg"></div>
+
+  <p class="tip">
+    默认对接智谱开放平台：<a href="https://open.bigmodel.cn" target="_blank">open.bigmodel.cn</a>
+    注册 → 控制台创建 API Key，glm-4-flash 为免费模型，零成本使用。
+    DeepSeek、Kimi 等任何 OpenAI 兼容接口改地址即可。
+  </p>
+
+  <script src="popup.js"></script>
+</body>
+</html>

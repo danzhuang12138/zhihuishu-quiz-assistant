@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "智慧树刷题助手",
+  "version": "0.1.0",
+  "description": "智慧树网课题目浮窗助手：自动检测页面上的题目，调用大模型给出参考答案（仅浮窗提示，不自动作答）。个人学习辅助工具。",
+  "permissions": ["storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "智慧树刷题助手"
+  },
+  "content_scripts": [
+    {
+    "matches": [
+      "*://*.zhihuishu.com/*"
+    ],
+      "js": ["content.js"],
+      "css": ["float.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
